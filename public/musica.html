@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Música - ShadowFiles</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #b877ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #8000ff;
+      padding-bottom: 10px;
+    }
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      border: 2px solid #b877ff;
+      background: linear-gradient(45deg, #8000ff, #3d0066);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #b877ff;
+      text-shadow: 0 0 10px #8000ff;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    main img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #b877ff;
+      box-shadow: 0 0 10px #8000ff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background-color: #1a0a4c;
+    }
+    main img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #d5a3ff;
+    }
+    nav {
+      margin-bottom: 30px;
+    }
+    nav a {
+      color: #b877ff;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    nav a:hover {
+      border-color: #d5a3ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="ShadowFiles Logo" />
+    <h1>Música</h1>
+  </header>
+
+  <nav>
+    <a href="dashboard.html">&larr; Volver al Dashboard</a>
+  </nav>
+
+  <main>
+    <img src="music1.jpg" alt="Música 1" />
+    <img src="music2.jpg" alt="Música 2" />
+    <img src="music3.jpg" alt="Música 3" />
+    <img src="music4.jpg" alt="Música 4" />
+    <img src="music5.jpg" alt="Música 5" />
+    <img src="music6.jpg" alt="Música 6" />
+    <img src="music7.jpg" alt="Música 7" />
+    <img src="music8.jpg" alt="Música 8" />
+    <img src="music9.jpg" alt="Música 9" />
+    <img src="music10.jpg" alt="Música 10" />
+  </main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShadowFiles - Iniciar Sesión</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #d3b3ff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .titulo {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #a44dff;
+      text-shadow: 0 0 10px #8000ff;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background-color: #8000ff;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .container {
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #8000ff80;
+      width: 300px;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #8000ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #a84dff;
+    }
+
+    .btn-secundario {
+      background-color: #444;
+      margin-top: 5px;
+    }
+
+    .btn-secundario:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">SF</div>
+  <div class="titulo">ShadowFiles</div>
+  <div class="container">
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button class="btn" onclick="iniciarSesion()">Iniciar Sesión</button>
+    <button class="btn btn-secundario" onclick="window.location.href='register.html'">Crear Usuario</button>
+  </div>
+
+  <script>
+    function iniciarSesion() {
+      const usuario = document.getElementById("usuario").value.trim();
+      const password = document.getElementById("password").value;
+
+      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      const encontrado = usuarios.find(u => u.usuario === usuario && u.password === password);
+
+      if (encontrado) {
+        localStorage.setItem("usuarioActivo", usuario);
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Usuario o contraseña incorrectos.");
+      }
+    }
+  </script>
+</body>
+</html>

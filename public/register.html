@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - ShadowFiles</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #d3b3ff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #8000ff80;
+      width: 300px;
+      text-align: center;
+    }
+
+    .titulo {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #b877ff;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #8000ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #a84dff;
+    }
+
+    .btn-volver {
+      background-color: #444;
+      margin-top: 5px;
+    }
+
+    .btn-volver:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="titulo">Crear Usuario</div>
+    <input type="text" id="nuevoUsuario" placeholder="Nuevo usuario">
+    <input type="password" id="nuevaPassword" placeholder="Contraseña">
+    <button class="btn" onclick="crearUsuario()">Registrar</button>
+    <button class="btn btn-volver" onclick="window.location.href='index.html'">Volver al login</button>
+  </div>
+
+  <script>
+    function crearUsuario() {
+      const nuevoUsuario = document.getElementById("nuevoUsuario").value.trim();
+      const nuevaPassword = document.getElementById("nuevaPassword").value;
+
+      if (!nuevoUsuario || !nuevaPassword) {
+        alert("Por favor, llena todos los campos.");
+        return;
+      }
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      const yaExiste = usuarios.find(u => u.usuario === nuevoUsuario);
+      if (yaExiste) {
+        alert("Este usuario ya existe.");
+        return;
+      }
+
+      usuarios.push({ usuario: nuevoUsuario, password: nuevaPassword });
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+      alert("Usuario creado exitosamente.");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
